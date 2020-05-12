@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -36,7 +37,6 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
             }
         });
         */
-
     }
 
     @SuppressLint("ResourceType")
@@ -82,7 +82,8 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
                 break;
 
             default:
-                Toast.makeText(getApplicationContext(), getButton.getText().toString() + " 버튼이 클릭되었습니다.", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), getButton.getText().toString() + " 버튼이 클릭되었습니다.", Toast.LENGTH_SHORT).show();
+                Log.e(">>>>>ButtonClick", "default " + getButton.getText().toString()+ " 버튼이 클릭되었습니다." );
                 break;
         }
 
