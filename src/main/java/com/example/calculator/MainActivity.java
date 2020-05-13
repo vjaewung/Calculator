@@ -16,6 +16,8 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
     int resultNumber = 0;
     char operator = '+';
 
+    final String CLEARED_INPUT_VALUE = "0";
+
     TextView resultText;
 
     /*Button num0;*/
@@ -53,23 +55,46 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
         */
 
         Button getButton = findViewById(view.getId());
-        Log.e(">>>>>ButtonClick", "ButtonClick 시작 : " + getButton.getText().toString() + " 버튼이 클릭되었습니다." );
-        Log.d(">>>>>ButtonClick", "resultNumber = " + resultNumber);
+        //Log.e(">>>>>ButtonClick", "ButtonClick 시작 : " + getButton.getText().toString() + " 버튼이 클릭되었습니다." );
+        //Log.d(">>>>>ButtonClick", "resultNumber = " + resultNumber);
 
         switch (view.getId()) {
 
-            case R.id.all_clear_button:
-                isFirstInput = true;
+            case R.id.all_clear_button :
                 resultNumber = 0;
                 operator = '+';
-                resultText.setTextColor(0xFF666666);
-                resultText.setText(String.valueOf(resultNumber));
+                setClearText("0");
+                break;
+
+            case R.id.clear_entry_button :
+                setClearText("0");
+                break;
+
+            case R.id.back_space_button :
+                isFirstInput = true;
+                if(resultText.getText().toString().length() > 1) {
+                    String getResultText = resultText.getText().toString();
+                    String subtractedString = getResultText.substring(0, getResultText.length() - 1);
+                    resultText.setText(subtractedString);
+                }
+                else {
+                    setClearText("0");
+
+                }
+                break;
+
+            case R.id.decimal_button :
+                Log.e(">>>>>ButtonClick",  getButton.getText().toString() + " 버튼이 클릭되었습니다." );
+
                 break;
 
             case R.id.addition_button :
             case R.id.subtraction_button :
             case R.id.division_button :
             case R.id.multiply_button :
+                resultNumber = intCalc(resultNumber, Integer.parseInt(resultText.getText().toString()), operator);
+
+                /*
                 int lastNum = Integer.parseInt(resultText.getText().toString());
                 if(operator == '+') {
                     resultNumber = resultNumber + lastNum;
@@ -83,7 +108,7 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
                 else if(operator == '*') {
                     resultNumber = resultNumber * lastNum;
                 }
-
+                */
                 operator = getButton.getText().toString().charAt(0);
                 resultText.setText(String.valueOf(resultNumber));
                 isFirstInput = true;
@@ -92,6 +117,9 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
                 break;
 
             case R.id.result_button :
+
+                resultNumber = intCalc(resultNumber, Integer.parseInt(resultText.getText().toString()), operator);
+                /*
                 int lastNum2 = Integer.parseInt(resultText.getText().toString());
                 if(operator == '+') {
                     resultNumber = resultNumber + lastNum2;
@@ -105,13 +133,14 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
                 else if(operator == '*') {
                     resultNumber = resultNumber * lastNum2;
                 }
+                */
 
                 resultText.setText(String.valueOf(resultNumber));
                 isFirstInput = true;
                 Log.d(">>>>>ButtonClick", "add resultNumber = " + resultNumber);
 
                 break;
-
+            /*
             case R.id.num_0_button:
             case R.id.num_1_button:
             case R.id.num_3_button:
@@ -130,9 +159,9 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
                     resultText.append(getButton.getText().toString());
                 }
                 break;
-
+            */
             default:
-                //Toast.makeText(getApplicationContext(), getButton.getText().toString() + " 버튼이 클릭되었습니다.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getButton.getText().toString() + " 버튼이 클릭되었습니다.", Toast.LENGTH_SHORT).show();
                 Log.e(">>>>>ButtonClick", "default " + getButton.getText().toString()+ " 버튼이 클릭되었습니다." );
                 break;
         }
@@ -153,6 +182,65 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
 
         }
         */
+
+    }
+
+    public void numButtonClick(View view) {
+
+        Button getButton = findViewById(view.getId());
+
+        if(isFirstInput) {
+            resultText.setTextColor(0xFF000000);
+            resultText.setText(getButton.getText().toString());
+            isFirstInput = false;
+        }
+        else {
+            resultText.append(getButton.getText().toString());
+        }
+    }
+
+    public void setClearText(String clearText) {
+        isFirstInput = true;
+        resultText.setTextColor(0xFF666666);
+        resultText.setText(clearText);
+    }
+
+    public int intCalc(int resultNumber, int lastNum, char operator) {
+
+        if(operator == '+') {
+            resultNumber += lastNum;
+        }
+        else if(operator == '-') {
+            resultNumber -= lastNum;
+        }
+        else if(operator == '/') {
+            resultNumber /= lastNum;
+        }
+        else if(operator == '*') {
+            resultNumber *= lastNum;
+        }
+
+        return resultNumber;
+    }
+
+    public void clickOperator(View view) {
+
+        Button getButton = findViewById(view.getId());
+
+        if(view.getId() == R.id.result_button) {
+            resultNumber = intCalc(resultNumber, Integer.parseInt(resultText.getText().toString()), operator);
+            operator = getButton.getText().toString().charAt(0);
+            resultText.setText(String.valueOf(resultNumber));
+            isFirstInput = true;
+        }
+        else {
+            resultNumber = intCalc(resultNumber, Integer.parseInt(resultText.getText().toString()), operator);
+            operator = getButton.getText().toString().charAt(0);
+            resultText.setText(String.valueOf(resultNumber));
+            isFirstInput = true;
+        }
+
+        Log.d(">>>>>ButtonClick", "add resultNumber = " + resultNumber);
 
     }
 

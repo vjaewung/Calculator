@@ -82,7 +82,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="25"
                 android:backgroundTint="#929292"
-                android:onClick="buttonClick"
+                android:onClick="clickOperator"
                 android:text="/"
                 android:textSize="30sp" />
         </LinearLayout>
@@ -100,7 +100,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="25"
-                android:onClick="buttonClick"
+                android:onClick="numButtonClick"
                 android:text="7"
                 android:textSize="30sp" />
 
@@ -109,7 +109,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="25"
-                android:onClick="buttonClick"
+                android:onClick="numButtonClick"
                 android:text="8"
                 android:textSize="30sp" />
 
@@ -118,7 +118,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="25"
-                android:onClick="buttonClick"
+                android:onClick="numButtonClick"
                 android:text="9"
                 android:textSize="30sp" />
 
@@ -128,7 +128,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="25"
                 android:backgroundTint="#929292"
-                android:onClick="buttonClick"
+                android:onClick="clickOperator"
                 android:text="*"
                 android:textSize="30sp" />
         </LinearLayout>
@@ -146,7 +146,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="25"
-                android:onClick="buttonClick"
+                android:onClick="numButtonClick"
                 android:text="4"
                 android:textSize="30sp" />
 
@@ -155,7 +155,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="25"
-                android:onClick="buttonClick"
+                android:onClick="numButtonClick"
                 android:text="5"
                 android:textSize="30sp" />
 
@@ -164,7 +164,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="25"
-                android:onClick="buttonClick"
+                android:onClick="numButtonClick"
                 android:text="6"
                 android:textSize="30sp" />
 
@@ -174,7 +174,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="25"
                 android:backgroundTint="#929292"
-                android:onClick="buttonClick"
+                android:onClick="clickOperator"
                 android:text="-"
                 android:textSize="30sp" />
         </LinearLayout>
@@ -192,7 +192,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="25"
-                android:onClick="buttonClick"
+                android:onClick="numButtonClick"
                 android:text="1"
                 android:textSize="30sp" />
 
@@ -201,7 +201,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="25"
-                android:onClick="buttonClick"
+                android:onClick="numButtonClick"
                 android:text="2"
                 android:textSize="30sp" />
 
@@ -210,7 +210,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="25"
-                android:onClick="buttonClick"
+                android:onClick="numButtonClick"
                 android:text="3"
                 android:textSize="30sp" />
 
@@ -220,7 +220,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="25"
                 android:backgroundTint="#929292"
-                android:onClick="buttonClick"
+                android:onClick="clickOperator"
                 android:text="+"
                 android:textSize="30sp" />
         </LinearLayout>
@@ -238,7 +238,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="50"
-                android:onClick="buttonClick"
+                android:onClick="numButtonClick"
                 android:text="0"
                 android:textSize="30sp" />
 
@@ -257,7 +257,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="25"
                 android:backgroundTint="#929292"
-                android:onClick="buttonClick"
+                android:onClick="clickOperator"
                 android:text="="
                 android:textSize="30sp" />
         </LinearLayout>
