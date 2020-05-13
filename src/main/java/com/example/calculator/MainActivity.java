@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
     @SuppressLint("ResourceType")
     public void buttonClick(View view) {
 
+        /*
         if(view.getId() == R.id.all_clear_button) {
             isFirstInput = true;
             resultNumber = 0;
@@ -49,8 +50,11 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
             resultText.setTextColor(0xFF666666);
             resultText.setText(String.valueOf(resultNumber));
         }
+        */
 
         Button getButton = findViewById(view.getId());
+        Log.e(">>>>>ButtonClick", "ButtonClick 시작 : " + getButton.getText().toString() + " 버튼이 클릭되었습니다." );
+        Log.d(">>>>>ButtonClick", "resultNumber = " + resultNumber);
 
         switch (view.getId()) {
 
@@ -60,6 +64,52 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
                 operator = '+';
                 resultText.setTextColor(0xFF666666);
                 resultText.setText(String.valueOf(resultNumber));
+                break;
+
+            case R.id.addition_button :
+            case R.id.subtraction_button :
+            case R.id.division_button :
+            case R.id.multiply_button :
+                int lastNum = Integer.parseInt(resultText.getText().toString());
+                if(operator == '+') {
+                    resultNumber = resultNumber + lastNum;
+                }
+                else if(operator == '-') {
+                    resultNumber = resultNumber - lastNum;
+                }
+                else if(operator == '/') {
+                    resultNumber = resultNumber / lastNum;
+                }
+                else if(operator == '*') {
+                    resultNumber = resultNumber * lastNum;
+                }
+
+                operator = getButton.getText().toString().charAt(0);
+                resultText.setText(String.valueOf(resultNumber));
+                isFirstInput = true;
+                Log.d(">>>>>ButtonClick", "add resultNumber = " + resultNumber);
+
+                break;
+
+            case R.id.result_button :
+                int lastNum2 = Integer.parseInt(resultText.getText().toString());
+                if(operator == '+') {
+                    resultNumber = resultNumber + lastNum2;
+                }
+                else if(operator == '-') {
+                    resultNumber = resultNumber - lastNum2;
+                }
+                else if(operator == '/') {
+                    resultNumber = resultNumber / lastNum2;
+                }
+                else if(operator == '*') {
+                    resultNumber = resultNumber * lastNum2;
+                }
+
+                resultText.setText(String.valueOf(resultNumber));
+                isFirstInput = true;
+                Log.d(">>>>>ButtonClick", "add resultNumber = " + resultNumber);
+
                 break;
 
             case R.id.num_0_button:
@@ -86,7 +136,6 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
                 Log.e(">>>>>ButtonClick", "default " + getButton.getText().toString()+ " 버튼이 클릭되었습니다." );
                 break;
         }
-
 
         /*
         if(view.getId() >= R.id.num_0_button && view.getId() <= R.id.num_9_button) {
