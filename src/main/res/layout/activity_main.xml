@@ -13,7 +13,6 @@
         android:layout_height="0dp"
         android:layout_weight="20"
         android:orientation="vertical">
-
         <TextView
             android:id="@+id/result_text"
             android:layout_width="match_parent"
